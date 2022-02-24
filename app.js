@@ -56,22 +56,24 @@ function getPokemon(id){
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
       pokeContent.textContent="";
       pokeContent.innerHTML = `
-      <div class="pCards">
-      <h3 class="name">${json.name}</h3>
-      <div class="cards ${type}">
+      <div class="pCards ${type}">
+      <div class="n">
+      <h3>${json.name}</h3>
+      </div>
+      <div class="cards ">
       <div class="img-container">
       <img src=${json.sprites.front_default} />
       </div>
       <div class="infos">
-      
       <small class="type">Tipo: <span>${type}</span></small>
       <small class="type">Vida: <span>${json.stats[0].base_stat}</span></small>
       <small class="type">Ataque: <span>${json.stats[1].base_stat}</span></small>
       <small class="type">Defensa: <span>${json.stats[2].base_stat}</span></small>
       <small class="type">Speed: <span>${json.stats[5].base_stat}</span></small>
-    </div>
-      </div>
-      </div>
+      <small class="type">Peso: <span>${json.weight/10} Kg</span></small>
+     </div>
+     </div>
+     </div>
       `
       
   });

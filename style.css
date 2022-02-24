@@ -13,6 +13,12 @@
 	normal: '#FFFFFF'*/
     body{
         background: rgb(23, 32, 48);
+        
+    }
+    .contenedor {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
     }
     .img-poke{
         text-align: center;
@@ -155,12 +161,19 @@ background-size: cover;
    }
 /*-----------------CARDS--------------------------------------*/
 .pCards{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: rgb(23, 32, 48);
+    border-radius: 10px;
     text-align: center;
     color: white;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+.pCards h3{
+    margin: 0;
+}
+.pCards .n{
+    background-color: rgba(0, 0, 0, 0.548);
+    padding: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .card{
     text-align: center;
@@ -175,24 +188,14 @@ background-size: cover;
     column-gap: 2px;
     text-align: center;
     color: black;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
     padding: 10px;
     
-}
-.cards h4{
-    margin: 0;
-    margin-top: 4px;
 }
 .infos{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.card h4{
-    margin: 0;
-    margin-top: 4px;
 }
 .img-container{
     display: flex;
@@ -213,8 +216,4 @@ background-size: cover;
 	border-radius: 10px;
 	font-size: 0.8em;
 	padding: 5px 10px;
-}
- .name {
-	margin: 15px 0 7px;
-	letter-spacing: 1px;
 }
