@@ -38,8 +38,8 @@ app.appendChild(frag);
     div.classList.add("card");
     div.classList.add(`${type}`)
     div.innerHTML = `
-    <div class="img-container">
-    <img src=${son.sprites.front_default} />
+    <div  class="img-container">
+    <img id="${son.id}" src=${son.sprites.front_default} />
     </div>
     <div class="info">
     <span class="number">#${son.id
@@ -107,4 +107,14 @@ function getPokemon(id){
   ajax.send();
  }
 
+ //spread
+app.addEventListener("click",clickPoke);
+function clickPoke(e){
+  if(e.target.classList.contains="img-container"){
+    getPokemon(e.target.id);
+    pokeContent.textContent="";
+    pokeContent.classList.toggle("hidden");
+}
+  }
+  
    
