@@ -1,33 +1,21 @@
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
-window.addEventListener("load",()=>{
-  
-    const ajax = new XMLHttpRequest();
-    ajax.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=50');
-    ajax.addEventListener('load', e => {
-      app.textContent="";
-      const respServerString = ajax.response;  // me llega una cadena json
-      const respServerObject = JSON.parse(respServerString); // cadena -> obj
-  
-      //console.log(respServerString);
-      //console.log(respServerObject);
-  
-      const pokemones = respServerObject.results;
-      pokemones.forEach(poke => {
-const ajax = new XMLHttpRequest();
-        ajax.addEventListener("load", e=> {
-            let json = JSON.parse(ajax.response);
-           
-            renderPoke(json);
-        });
-        ajax.open("GET",`https://pokeapi.co/api/v2/pokemon/${poke.url.split('/')[6]}`);
-        ajax.send();
-      });
-    });
-    ajax.send(); // en este punto, sale el request hacia el server
-        
+const CANT_POKE = 151;
+window.addEventListener("load",drawPokemon());
+async function drawPokemon () {
+  for (let i = 1; i <= CANT_POKE; i++) {
+  await getPok(i);
+}
+}
 
-   });
+ async function getPok (id){
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const rest = await fetch(url);
+  const pokemon = await rest.json();
+  createPokemon(pokemon);
+}
+
+
    const pokeContent = document.getElementById('pokemonContent');
    let pokeForm = document.getElementById('searchPokemon');
    pokeContent.addEventListener("click", e =>pokeContent.classList.toggle("hidden"));
@@ -99,7 +87,7 @@ normal: '#FFFFFF'
 }
 
 const main_types = Object.keys(colors);
-   function renderPoke(son){
+   function createPokemon(son){
     const poke_types = son.types.map(type => type.type.name);
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
     app.innerHTML += `
@@ -119,4 +107,4 @@ const main_types = Object.keys(colors);
    /*<small class="type">Tipo: <span>${son.types[0].type.name}</span></small>*/
    }
 
-    
+   
