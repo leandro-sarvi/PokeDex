@@ -6,13 +6,14 @@ async function drawPokemon () {
   for (let i = 1; i <= CANT_POKE; i++) {
   await getPok(i);
 }
+app.appendChild(frag);
 }
 
  async function getPok (id){
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   const rest = await fetch(url);
   const pokemon = await rest.json();
-  createPokemon(pokemon);
+  frag.appendChild(createPokemon(pokemon));
 }
 
 
@@ -90,8 +91,10 @@ const main_types = Object.keys(colors);
    function createPokemon(son){
     const poke_types = son.types.map(type => type.type.name);
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
-    app.innerHTML += `
-    <div class="card ${type}">
+    let div = document.createElement("div");
+    div.classList.add("card");
+    div.classList.add(`${type}`)
+    div.innerHTML = `
     <div class="img-container">
     <img src=${son.sprites.front_default} />
     </div>
@@ -102,8 +105,8 @@ const main_types = Object.keys(colors);
     <h3 class="name">${son.name}</h3>
     
 </div>
-    </div>
     `
+    return div;
    /*<small class="type">Tipo: <span>${son.types[0].type.name}</span></small>*/
    }
 
