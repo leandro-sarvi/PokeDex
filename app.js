@@ -1,6 +1,6 @@
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
-const CANT_POKE = 151;
+const CANT_POKE = 60;
 window.addEventListener("load",drawPokemon());
 async function drawPokemon () {
   for (let i = 1; i <= CANT_POKE; i++) {
