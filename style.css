@@ -112,6 +112,7 @@ background-size: cover;
       color: white;
       font-size: 15px;
       line-height: 2px;
+      margin-bottom: 10px;
 }
 
 .pokedex__header-search form button{
