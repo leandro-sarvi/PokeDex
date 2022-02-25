@@ -1,3 +1,19 @@
+const colors = {
+  fire: '#FFA05D',
+grass: '#8FD594',
+electric: '#FFE43B',
+water: '#7E97C0',
+ground: '#CAAC4D',
+rock: '#90642D',
+poison: '#9D5B9B',
+bug: '#EAFD71',
+dragon: '#97b3e6',
+psychic: '#FF96B5',
+flying: '#CDCDCD',
+fighting: '#FF5D5D',
+normal: '#FFFFFF'
+}
+const main_types = Object.keys(colors);
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
 const CANT_POKE = 60;
@@ -15,7 +31,26 @@ app.appendChild(frag);
   const pokemon = await rest.json();
   frag.appendChild(createPokemon(pokemon));
 }
-
+   function createPokemon(son){
+    const poke_types = son.types.map(type => type.type.name);
+    const type = main_types.find(type => poke_types.indexOf(type) > -1);
+    let div = document.createElement("div");
+    div.classList.add("card");
+    div.classList.add(`${type}`)
+    div.innerHTML = `
+    <div class="img-container">
+    <img src=${son.sprites.front_default} />
+    </div>
+    <div class="info">
+    <span class="number">#${son.id
+                    .toString()
+                    .padStart(3, '0')}</span>
+    <h3 class="name">${son.name}</h3>
+</div>
+    `
+    return div;
+   /*<small class="type">Tipo: <span>${son.types[0].type.name}</span></small>*/
+   }
 
    const pokeContent = document.getElementById('pokemonContent');
    let pokeForm = document.getElementById('searchPokemon');
@@ -71,43 +106,5 @@ function getPokemon(id){
   ajax.open("GET",`https://pokeapi.co/api/v2/pokemon/${id}`);
   ajax.send();
  }
- const colors = {
-  fire: '#FFA05D',
-grass: '#8FD594',
-electric: '#FFE43B',
-water: '#7E97C0',
-ground: '#CAAC4D',
-rock: '#90642D',
-poison: '#9D5B9B',
-bug: '#EAFD71',
-dragon: '#97b3e6',
-psychic: '#FF96B5',
-flying: '#CDCDCD',
-fighting: '#FF5D5D',
-normal: '#FFFFFF'
-}
-
-const main_types = Object.keys(colors);
-   function createPokemon(son){
-    const poke_types = son.types.map(type => type.type.name);
-    const type = main_types.find(type => poke_types.indexOf(type) > -1);
-    let div = document.createElement("div");
-    div.classList.add("card");
-    div.classList.add(`${type}`)
-    div.innerHTML = `
-    <div class="img-container">
-    <img src=${son.sprites.front_default} />
-    </div>
-    <div class="info">
-    <span class="number">#${son.id
-                    .toString()
-                    .padStart(3, '0')}</span>
-    <h3 class="name">${son.name}</h3>
-    
-</div>
-    `
-    return div;
-   /*<small class="type">Tipo: <span>${son.types[0].type.name}</span></small>*/
-   }
 
    
