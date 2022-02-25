@@ -36,12 +36,14 @@ const ajax = new XMLHttpRequest();
     e.preventDefault();
     const expRegEmail = /[0-9]/gi;
     let searchPokemon = document.getElementById('pokemon').value;
-    if(expRegEmail.test(searchPokemon) == false){
+    if(document.getElementById('pokemon').value<=898){
+      if(expRegEmail.test(searchPokemon) == false){
 
-    }else{
-      getPokemon(searchPokemon, true);
-      pokeContent.textContent="";
-      pokeContent.classList.toggle("hidden");
+      }else{
+        getPokemon(searchPokemon, true);
+        pokeContent.textContent="";
+        pokeContent.classList.toggle("hidden");
+      }
     }
     
 
