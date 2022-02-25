@@ -18,11 +18,17 @@ const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
 const CANT_POKE = 60;
 window.addEventListener("load",drawPokemon());
+
 async function drawPokemon () {
   for (let i = 1; i <= CANT_POKE; i++) {
   await getPok(i);
 }
 app.appendChild(frag);
+//eventos para click img(dentro del div app) propagation
+const enlaces = app.querySelectorAll("img");
+enlaces.forEach(function(img){
+  img.addEventListener('click', clickPoke); 
+});
 }
 
  async function getPok (id){
@@ -107,14 +113,12 @@ function getPokemon(id){
   ajax.send();
  }
 
- //spread
-app.addEventListener("click",clickPoke);
+ //Propagation
 function clickPoke(e){
-  if(e.target.classList.contains="img-container"){
-    getPokemon(e.target.id);
+  getPokemon(e.target.id);
     pokeContent.textContent="";
     pokeContent.classList.toggle("hidden");
-}
-  }
+ 
   
+}
    
