@@ -13,7 +13,7 @@ window.addEventListener("load",()=>{
       //console.log(respServerObject);
   
       const pokemones = respServerObject.results;
-      pokemones.map(poke => {
+      pokemones.forEach(poke => {
 const ajax = new XMLHttpRequest();
         ajax.addEventListener("load", e=> {
             let json = JSON.parse(ajax.response);
