@@ -11,9 +11,11 @@ dragon: '#97b3e6',
 psychic: '#FF96B5',
 flying: '#CDCDCD',
 fighting: '#FF5D5D',
-normal: '#FFFFFF'
+normal: '#FFFFFF',
+fairy: '#ff0080'
 }
 const main_types = Object.keys(colors);
+let footer = document.querySelector(".footer");
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
 const CANT_POKE = 80;
@@ -24,6 +26,7 @@ async function drawPokemon () {
   await getPok(i);
 }
 app.appendChild(frag);
+footer.classList.toggle("hidden");
 //eventos para click img(dentro del div app)
 const enlaces = app.querySelectorAll("img");
 enlaces.forEach(function(img){
@@ -113,12 +116,29 @@ function getPokemon(id){
   ajax.send();
  }
 
- //Propagation
+ //----------------------------------------------------------------------------------------
 function clickPoke(e){
   getPokemon(e.target.id);
     pokeContent.textContent="";
     pokeContent.classList.toggle("hidden");
- 
-  
 }
-   
+//----------------------menu--------------------------------------------------------------
+let overlay = document.querySelector(".overlay");
+let menu = document.querySelector("i");
+let modal = document.querySelector(".modal");
+let a = modal.querySelector("a");
+a.addEventListener("click",clickAbout);
+menu.addEventListener("click",clickMenu);
+function clickAbout(){
+  modal.classList.toggle("open");
+  overlay.classList.toggle("hidden");
+}
+function clickMenu(){
+  modal.classList.toggle("open");
+  overlay.classList.toggle("hidden");
+}
+overlay.addEventListener("click",clickOverlay);
+function clickOverlay(){
+  modal.classList.toggle("open");
+  overlay.classList.toggle("hidden");
+}

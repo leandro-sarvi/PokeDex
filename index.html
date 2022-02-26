@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="icon" href="/img/pokeball.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+   
+    <script src="https://kit.fontawesome.com/edd36e583e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>PokeDex</title>
 </head>
 <body> 
-   
+    <div class="overlay hidden"></div>
+    <div class="modal">
+        <div class="img-menu"> <img src="/img/pokemon-23.svg" alt=""></div>
+        <a href="#about">About</a>
+      </div>
+   <div class="menu">
+       <nav>
+        <i class="fas fa-bars"></i>
+       </nav>
+   </div>
     <div class="pokedex__header-search"> 
         <div class="img-poke"> <img src="/img/pokemon-23.svg" alt=""></div>
         <form action="" id="searchPokemon">
@@ -26,6 +39,10 @@
     </div>
     <div class="pokedex__pokemon-content hidden" id="pokemonContent">
         
+    </div>
+    <div class="footer hidden" id="about">
+        <div class="img-poke"> <img src="/img/pokemon-23.svg" alt=""></div>
+        <h4>© 2022 - Sarvi Leandro</h4>
     </div>
     <script src="app.js"></script>
 </body>
