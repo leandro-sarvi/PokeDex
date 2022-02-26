@@ -16,7 +16,7 @@ normal: '#FFFFFF'
 const main_types = Object.keys(colors);
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
-const CANT_POKE = 60;
+const CANT_POKE = 80;
 window.addEventListener("load",drawPokemon());
 
 async function drawPokemon () {
