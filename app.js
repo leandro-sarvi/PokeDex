@@ -24,7 +24,7 @@ async function drawPokemon () {
   await getPok(i);
 }
 app.appendChild(frag);
-//eventos para click img(dentro del div app) propagation
+//eventos para click img(dentro del div app)
 const enlaces = app.querySelectorAll("img");
 enlaces.forEach(function(img){
   img.addEventListener('click', clickPoke); 
