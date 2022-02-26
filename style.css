@@ -276,6 +276,8 @@ background-size: cover;
     justify-content: center;
     color: white;
     text-shadow: 1px 1px 1px black;
+    font-size: 25px;
+    padding: 30px;
 }
 .img-container{
     display: flex;
