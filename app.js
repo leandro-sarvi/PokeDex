@@ -106,6 +106,7 @@ function getPokemon(id){
       <small class="type">Defensa: <span>${json.stats[2].base_stat}</span></small>
       <small class="type">Speed: <span>${json.stats[5].base_stat}</span></small>
       <small class="type">Peso: <span>${json.weight/10} Kg</span></small>
+      <small class="type">Altura: <span>${json.height/10} m</span></small>
      </div>
      </div>
      </div>
