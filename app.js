@@ -15,10 +15,11 @@ normal: '#FFFFFF',
 fairy: '#ff0080'
 }
 const main_types = Object.keys(colors);
+let preloader = document.querySelector(".preloader");
 let footer = document.querySelector(".footer");
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
-const CANT_POKE = 80;
+const CANT_POKE = 151;
 window.addEventListener("load",drawPokemon());
 
 async function drawPokemon () {
@@ -32,6 +33,7 @@ const enlaces = app.querySelectorAll("img");
 enlaces.forEach(function(img){
   img.addEventListener('click', clickPoke); 
 });
+preloader.classList.toggle("hidden");
 }
 
  async function getPok (id){
@@ -127,10 +129,12 @@ function clickPoke(e){
 let overlay = document.querySelector(".overlay");
 let menu = document.querySelector("i");
 let modal = document.querySelector(".modal");
-let a = modal.querySelector("a");
-a.addEventListener("click",clickAbout);
+let enlaces = modal.querySelectorAll("a");
+enlaces.forEach(function(a){
+  a.addEventListener('click', clickMenuModal); 
+});
 menu.addEventListener("click",clickMenu);
-function clickAbout(){
+function clickMenuModal(){
   modal.classList.toggle("open");
   overlay.classList.toggle("hidden");
 }
