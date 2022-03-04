@@ -85,38 +85,34 @@ preloader.classList.toggle("hidden");
 });
 
 function getPokemon(id){
-  const ajax = new XMLHttpRequest();
-  ajax.addEventListener("load", e=> {
-      let json = JSON.parse(ajax.response);
-      
-      const poke_types = json.types.map(type => type.type.name);
+  fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+  .then(res => res.json())
+  .then(data => {
+    const poke_types = data.types.map(type => type.type.name);
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
       pokeContent.textContent="";
       pokeContent.innerHTML = `
       <div class="pCards ${type}">
       <div class="n">
-      <h3>${json.name}</h3>
+      <h3>${data.name}</h3>
       </div>
       <div class="cards ">
       <div class="img-container">
-      <img src=${json.sprites.front_default} />
+      <img src=${data.sprites.front_default} />
       </div>
       <div class="infos">
       <small class="type">Tipo: <span>${type}</span></small>
-      <small class="type">Vida: <span>${json.stats[0].base_stat}</span></small>
-      <small class="type">Ataque: <span>${json.stats[1].base_stat}</span></small>
-      <small class="type">Defensa: <span>${json.stats[2].base_stat}</span></small>
-      <small class="type">Speed: <span>${json.stats[5].base_stat}</span></small>
-      <small class="type">Peso: <span>${json.weight/10} Kg</span></small>
-      <small class="type">Altura: <span>${json.height/10} m</span></small>
+      <small class="type">Vida: <span>${data.stats[0].base_stat}</span></small>
+      <small class="type">Ataque: <span>${data.stats[1].base_stat}</span></small>
+      <small class="type">Defensa: <span>${data.stats[2].base_stat}</span></small>
+      <small class="type">Speed: <span>${data.stats[5].base_stat}</span></small>
+      <small class="type">Peso: <span>${data.weight/10} Kg</span></small>
+      <small class="type">Altura: <span>${data.height/10} m</span></small>
      </div>
      </div>
      </div>
       `
-      
   });
-  ajax.open("GET",`https://pokeapi.co/api/v2/pokemon/${id}`);
-  ajax.send();
  }
 
  //----------------------------------------------------------------------------------------
