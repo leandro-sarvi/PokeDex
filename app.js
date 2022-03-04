@@ -13,7 +13,7 @@ flying: '#CDCDCD',
 fighting: '#FF5D5D',
 normal: '#FFFFFF',
 fairy: '#ff0080'
-}
+};
 const main_types = Object.keys(colors);
 let preloader = document.querySelector(".preloader");
 let footer = document.querySelector(".footer");
