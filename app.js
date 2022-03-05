@@ -1,20 +1,3 @@
-const colors = {
-  fire: '#FFA05D',
-grass: '#8FD594',
-electric: '#FFE43B',
-water: '#7E97C0',
-ground: '#CAAC4D',
-rock: '#90642D',
-poison: '#9D5B9B',
-bug: '#EAFD71',
-dragon: '#97b3e6',
-psychic: '#FF96B5',
-flying: '#CDCDCD',
-fighting: '#FF5D5D',
-normal: '#FFFFFF',
-fairy: '#ff0080'
-};
-const main_types = Object.keys(colors);
 let preloader = document.querySelector(".preloader");
 let footer = document.querySelector(".footer");
 const app = document.querySelector(".app");
@@ -44,7 +27,7 @@ preloader.classList.toggle("hidden");
 }
    function createPokemon(son){
     const poke_types = son.types.map(type => type.type.name);
-    const type = main_types.find(type => poke_types.indexOf(type) > -1);
+    console.log(poke_types);
     let div = document.createElement("div");
     div.classList.add("card");
     div.innerHTML = `
@@ -55,8 +38,13 @@ preloader.classList.toggle("hidden");
                     .padStart(3, '0')}</span>
     <h3 class="name">${son.name}</h3>
     </div>
-    <div class="tipos ${type}">
-    <i class="fas ${cons(type)}"></i>
+    <div class="iconsTypes">
+    <div class="tipos ${poke_types[0]}">
+    <i class="fas ${cons(poke_types[0])}"></i>
+    </div>
+    <div class="tipos ${poke_types[1]}">
+    <i class="fas ${cons(poke_types[1])}"></i>
+    </div>
     </div>
 </div>
 <div>
@@ -67,39 +55,41 @@ preloader.classList.toggle("hidden");
    /*<small class="type">Tipo: <span>${son.types[0].type.name}</span></small>*/
    }
 function cons(type){
-  switch (type) {
-    case "fire":
-      return "fa-fire"
-      break;
-      case "electric":
-        return "fa-bolt"
+  if(type){
+    switch (type) {
+      case "fire":
+        return "fa-fire"
         break;
-        case "poison":
-          return "fa-skull-crossbones"
+        case "electric":
+          return "fa-bolt"
           break;
-          case "grass":
-            return "fa-leaf";
+          case "poison":
+            return "fa-skull-crossbones"
             break;
-            case "water":
-            return "fa-water";
-            break;
-            case "bug":
-            return "fa-bug";
-            break;
-            case "flying":
-              return "fa-wind";
+            case "grass":
+              return "fa-leaf";
               break;
-              case "fairy":
-              return "fa-syringe";
+              case "water":
+              return "fa-water";
               break;
-              case "psychic":
-              return "fa-bullseye";
+              case "bug":
+              return "fa-bug";
               break;
-              case "fighting":
-                return "fa-helmet-battle";
+              case "flying":
+                return "fa-wind";
                 break;
-    default:
-      break;
+                case "fairy":
+                return "fa-syringe";
+                break;
+                case "psychic":
+                return "fa-bullseye";
+                break;
+                case "fighting":
+                  return "fa-helmet-battle";
+                  break;
+      default:
+        break;
+  }
   }
   if(type=="fire"){
     return "fa-fire";
@@ -131,7 +121,6 @@ function getPokemon(id){
   .then(res => res.json())
   .then(data => {
     const poke_types = data.types.map(type => type.type.name);
-    const type = main_types.find(type => poke_types.indexOf(type) > -1);
       pokeContent.textContent="";
       pokeContent.innerHTML = `
       <div class="pCards">
@@ -143,7 +132,9 @@ function getPokemon(id){
       <img src=${data.sprites.front_default} />
       </div>
       <div class="infos">
-      <small class="type"><span class="t ${type}">${type}</span></small>
+      <small class="type"><span class="t ${poke_types[0]}">${poke_types[0]}</span></small>
+      <small class="type"><span class="t ${poke_types[1]}">${poke_types[1]}</span></small>
+
       <small class="type">Vida: <span>${data.stats[0].base_stat}</span></small>
       <small class="type">Ataque: <span>${data.stats[1].base_stat}</span></small>
       <small class="type">Defensa: <span>${data.stats[2].base_stat}</span></small>

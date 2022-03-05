@@ -118,6 +118,7 @@ span{
     border-radius: 100%;
     width: 35px;
     height: 35px;
+    margin-bottom: 5px;
 }
 .fire{
     background: #fba54c;
@@ -310,6 +311,10 @@ span{
 }
 .type{
     margin-bottom: 5px;
+}
+.iconsTypes{
+    display: flex;
+    flex-direction: column;
 }
 /* -------------------------------footer--------------------------------*/
 .footer{
