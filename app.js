@@ -47,22 +47,64 @@ preloader.classList.toggle("hidden");
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
     let div = document.createElement("div");
     div.classList.add("card");
-    div.classList.add(`${type}`)
     div.innerHTML = `
-    <div  class="img-container">
-    <img id="${son.id}" src=${son.sprites.front_default} />
-    </div>
     <div class="info">
+    <div>
     <span class="number">#${son.id
                     .toString()
                     .padStart(3, '0')}</span>
     <h3 class="name">${son.name}</h3>
+    </div>
+    <div class="tipos ${type}">
+    <i class="fas ${cons(type)}"></i>
+    </div>
 </div>
+<div>
+    <img id="${son.id}" src=${son.sprites.front_default} />
+    </div>
     `
     return div;
    /*<small class="type">Tipo: <span>${son.types[0].type.name}</span></small>*/
    }
-
+function cons(type){
+  switch (type) {
+    case "fire":
+      return "fa-fire"
+      break;
+      case "electric":
+        return "fa-bolt"
+        break;
+        case "poison":
+          return "fa-skull-crossbones"
+          break;
+          case "grass":
+            return "fa-leaf";
+            break;
+            case "water":
+            return "fa-water";
+            break;
+            case "bug":
+            return "fa-bug";
+            break;
+            case "flying":
+              return "fa-wind";
+              break;
+              case "fairy":
+              return "fa-syringe";
+              break;
+              case "psychic":
+              return "fa-bullseye";
+              break;
+              case "fighting":
+                return "fa-helmet-battle";
+                break;
+    default:
+      break;
+  }
+  if(type=="fire"){
+    return "fa-fire";
+  }
+}
    const pokeContent = document.getElementById('pokemonContent');
    let pokeForm = document.getElementById('searchPokemon');
    pokeContent.addEventListener("click", e =>pokeContent.classList.toggle("hidden"));
@@ -92,7 +134,7 @@ function getPokemon(id){
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
       pokeContent.textContent="";
       pokeContent.innerHTML = `
-      <div class="pCards ${type}">
+      <div class="pCards">
       <div class="n">
       <h3>${data.name}</h3>
       </div>
@@ -101,7 +143,7 @@ function getPokemon(id){
       <img src=${data.sprites.front_default} />
       </div>
       <div class="infos">
-      <small class="type">Tipo: <span>${type}</span></small>
+      <small class="type"><span class="t ${type}">${type}</span></small>
       <small class="type">Vida: <span>${data.stats[0].base_stat}</span></small>
       <small class="type">Ataque: <span>${data.stats[1].base_stat}</span></small>
       <small class="type">Defensa: <span>${data.stats[2].base_stat}</span></small>
