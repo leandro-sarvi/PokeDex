@@ -2,7 +2,7 @@ let preloader = document.querySelector(".preloader");
 let footer = document.querySelector(".footer");
 const app = document.querySelector(".app");
 let frag = document.createDocumentFragment();
-const CANT_POKE = 151;
+const CANT_POKE = 400;
 window.addEventListener("load",drawPokemon());
 
 async function drawPokemon () {
@@ -32,7 +32,7 @@ preloader.classList.toggle("hidden");
     div.classList.add("card");
     div.innerHTML = `
     <div class="info">
-    <div>
+    <div class="info-name">
     <span class="number">#${son.id
                     .toString()
                     .padStart(3, '0')}</span>
@@ -85,7 +85,31 @@ function cons(type){
                 return "fa-bullseye";
                 break;
                 case "fighting":
-                  return "fa-helmet-battle";
+                return "fa-fist-raised";
+                break;
+                case "dragon":
+                return "fa-dragon";
+                break;
+                case "ice":
+                return "fa-snowflake";
+                break;
+                case "normal":
+                  return "fa-circle-notch";
+                  break;
+                  case "rock":
+                return "fa-octagon";
+                break;
+                case "ground":
+                return "fa-mountain";
+                break;
+                case "ghost":
+                return "fa-ghost";
+                break;
+                case "dark":
+                return "fa-adjust";
+                break;
+                case "steel":
+                  return "far fa-hexagon";
                   break;
       default:
         break;

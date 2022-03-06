@@ -142,7 +142,8 @@ span{
     box-shadow: 0 0 20px #da7c4d;
 }
 .rock{
-    background-color: #90642D;
+    background: #c9bb8a;
+    box-shadow: 0 0 20px #c9bb8a;
 }
 .poison{
     background: #b763cf;
@@ -153,7 +154,8 @@ span{
     box-shadow: 0 0 20px #92bc2c; 
 }
 .dragon{
-    background-color: #97b3e6;
+    background: #0c69c8;
+    box-shadow: 0 0 20px #0c69c8;
 }
 .psychic{
     background: #fa8581;
@@ -172,7 +174,24 @@ span{
     box-shadow: 0 0 20px #ee90e6;
 }
 .normal{
-    background-color: #747474;
+    background: #a0a29f;
+    box-shadow: 0 0 20px #a0a29f;
+}
+.ice{
+    background: #75d0c1;
+    box-shadow: 0 0 20px #75d0c1;
+}
+.ghost {
+    background: #5f6dbc;
+    box-shadow: 0 0 20px #5f6dbc;
+}
+.dark{
+    background: #595761;
+    box-shadow: 0 0 20px #595761;
+}
+.steel{
+    background: #5695a3;
+    box-shadow: 0 0 20px #5695a3;
 }
 /*-------------------------------SEARCH-----------------------------------------------------*/
 .pokedex__header-search{
@@ -280,7 +299,7 @@ span{
     color: white;
     text-shadow: 1px 1px 1px black;
     font-size: 25px;
-    padding: 30px;
+    padding: 20px;
 }
 .img-container{
     display: flex;
@@ -299,15 +318,21 @@ span{
     justify-content: space-between;
     padding: 0 5px;
 }
+.info-name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 .number {
 	background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
-	font-size: 0.8em;
+	font-size: 20px;
 	padding: 5px 10px;
 }
 .t{
     border-radius: 10px;
-    padding: 3px 3px;
+    padding: 1px 1px;
 }
 .type{
     margin-bottom: 5px;
