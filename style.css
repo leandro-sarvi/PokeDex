@@ -1,18 +1,4 @@
-
-/*fire: '#FFA05D',
-	grass: '#8FD594',
-	electric: '#FFE43B',
-	water: '#7E97C0',
-	ground: '#CAAC4D',
-	rock: '#90642D',
-	poison: '#9D5B9B',
-	bug: '#EAFD71',
-	dragon: '#97b3e6',
-	psychic: '#FF96B5',
-	flying: '#CDCDCD',
-	fighting: '#FF5D5D',
-	normal: '#FFFFFF'*/
-    body{
+body{
         background: rgb(23, 32, 48);
         font-family: 'Roboto Mono', monospace;
         margin: 0;
@@ -36,73 +22,71 @@
         justify-content: center;
         align-items: center;
     }
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.486);
-        width: 100vw;
-        height: 100vh;
-      }
-      .img-menu img{
-          width: 100px;
-          height: 90px;
-      }
-    .modal {
-        background: rgb(23, 32, 48);
-        position: fixed;
-        z-index: 101;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100vh;
-        transition: left 0.5s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .modal a{
-        color: white;
-        text-decoration: none;
-    }
-    .open {
-      left: 0;
-    }   
-    .modal a {
-      font-size: 24px;
-      padding: 6px;
-    }
     .menu{
         position: fixed;
         top: 0;
         width: 100%;
+        z-index: 100;
         background-color: rgba(0, 0, 0, 0.349);
         padding:  15px 0;
         margin-bottom: 20px;
+        box-shadow: 0 2px 10px -2px rgba(128, 128, 128, 0.486);
     }
 nav{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     justify-content: space-between;
+}
+.input-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    margin-left: 5%;
+}
+.input-box input{
+    height: 100%;
+    width: 150px;
+    border: none;
+    outline: none;
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+      background: white;
+      outline: none;
+      background: rgba(204, 204, 204, 0.438);
+      color: rgb(255, 251, 251);
+      font-size: 15px;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 20px;  
+}
+.input-box input::placeholder{
+    color: #a0a29f;
+}
+.i-search{
+    height: 100%;
+    background: rgba(204, 204, 204, 0.438);
+    color: #007bff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 nav .poke{
     margin: 0;
     color: white;
     padding: 2px;
-    border-radius: 4px;
-    border: 1px solid white;
-    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 30px;
 }
 span{
     border: 0;
 }
-     nav i{
-        color: white;
-        font-weight:lighter;
-        font-size: 30px;
-        cursor: pointer;
-        margin-right: 5%;
-    }
     .img-poke{
         text-align: center;
     }
@@ -200,39 +184,6 @@ span{
     margin: auto;
     padding-top: 70px;
 }
-.pokedex__header-search form{
-    border-color: blue;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-.pokedex__header-search input{
-    width: 70%;
-    border: none;
-    outline: none;
-    border: none;
-      border-bottom: 2px solid white;
-      background: transparent;
-      outline: none;
-      height: 20px;
-      color: white;
-      font-size: 15px;
-      line-height: 2px;
-      margin-bottom: 10px;
-}
-.pokedex__header-search form button{
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-.pokedex__header-search form button img{
-    max-width: 100%;
-}
 .pokedex__header-aline{
  display: flex;  
  width: 150px;
@@ -243,7 +194,7 @@ span{
     left: 0;
     margin: auto;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: rgba(0, 0, 0, 0.753);
     display: flex;
     align-items: center;
@@ -280,11 +231,16 @@ span{
     border-top-right-radius: 10px;
 }
 .card{
+    text-decoration: none;
     text-align: center;
     color: white;
     text-shadow: 1px 1px 2px black;
     padding: 10px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+.card img{
+    width: 150px;
+    height: 150px;
 }
 .cards{ 
     text-align: center;
