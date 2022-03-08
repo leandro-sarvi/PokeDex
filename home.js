@@ -1,11 +1,4 @@
-let preloader = document.querySelector(".preloader");
-let footer = document.querySelector(".footer");
-let con = document.querySelector("#pokemonContent");
-let frag = document.createDocumentFragment();
-const CANT_POKE = 807;
-
-
-function fetchPokemon (app){
+function fetchPokemon (){
   const promises = [];
   for (let i = 1; i <= CANT_POKE; i++) {
       const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -17,18 +10,19 @@ function fetchPokemon (app){
   Promise.all(promises).then(results => {
       const pokemon = results.map(result => ({
           name: result.name,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${result.id}.png`,
+          image: result.sprites['other']['official-artwork']['front_default'],
           type: result.types.map((type) => type.type.name),
           id: result.id
       }));//destructuring result
-      displayPokemon(pokemon,app);
+      displayPokemon(pokemon);
+      preloader.classList.toggle("hidden");
   });
 };
-function displayPokemon (pokemon,app){
+function displayPokemon (pokemon){
   const pokemonHTMLString = pokemon
       .map(
           son => `
-          <a class="card" id="${son.id}">
+          <div class="card">
           <div class="info">
           <div class="info-name">
           <span class="number">#${son.id
@@ -48,12 +42,14 @@ function displayPokemon (pokemon,app){
       <div>
           <img src=${son.image} />
           </div>
-          </a>
+          <div class="tipos normal">
+          <i class="fas fa-info infom" id="${son.id}"></i>
+          </div>
+          </div>
   `
       )
       .join('');
   app.innerHTML = pokemonHTMLString;
-  preloader.classList.toggle("hidden");
 };
 function cons(type){
   if(type){
@@ -117,62 +113,54 @@ function cons(type){
   }
   }
 }
-   const pokeContent = document.getElementById('pokemonContent');
-   let pokeForm = document.getElementById('searchPokemon');
-   pokeContent.addEventListener("click", e =>pokeContent.classList.toggle("hidden"));
-
-   pokeForm.addEventListener('submit', e =>{
-    e.preventDefault();
-    const expRegEmail = /[0-9]/gi;
-    let searchPokemon = document.getElementById('pokemon').value;
-    if(document.getElementById('pokemon').value<=898){
-      if(expRegEmail.test(searchPokemon) == false){
-
-      }else{
-        getPokemon(searchPokemon, true);
-        pokeContent.textContent="";
-        pokeContent.classList.toggle("hidden");
-      }
-    }
-    
-
-});
-
+ //----------------------------------------------------------------------------------------
+function clickPoke(e){
+ if(e.target.classList.contains("infom")){
+   console.log("hola")
+   con.textContent="";
+   getPokemon(e.target.id);
+   con.classList.toggle("hidden");
+ }
+}
+function hiddenDetail(){
+  con.classList.toggle("hidden");
+}
 function getPokemon(id){
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
   .then(res => res.json())
   .then(data => {
     const poke_types = data.types.map(type => type.type.name);
-      pokeContent.textContent="";
-      pokeContent.innerHTML = `
+let secu ="";
+    if(poke_types[1]){
+      secu = poke_types[1];
+    }
+      con.textContent="";
+      con.innerHTML = `
       <div class="pCards">
-      <div class="n">
+      <div class="n ${poke_types[0]}">
       <h3>${data.name}</h3>
       </div>
-      <div class="cards ">
-      <div class="img-container">
-      <img src=${data.sprites.front_default} />
-      </div>
+      <div class="cards">
       <div class="infos">
-      <small class="type"><span class="t ${poke_types[0]}">${poke_types[0]}</span></small>
-      <small class="type"><span class="t ${poke_types[1]}">${poke_types[1]}</span></small>
-
-      <small class="type">Vida: <span>${data.stats[0].base_stat}</span></small>
-      <small class="type">Ataque: <span>${data.stats[1].base_stat}</span></small>
-      <small class="type">Defensa: <span>${data.stats[2].base_stat}</span></small>
-      <small class="type">Speed: <span>${data.stats[5].base_stat}</span></small>
-      <small class="type">Peso: <span>${data.weight/10} Kg</span></small>
-      <small class="type">Altura: <span>${data.height/10} m</span></small>
+      <div class="base rot1">
+      <small class="type">Id: <span class="t ${poke_types[0]}">#${data.id}</span></small>
+      <small class="type">Type: <span class="t ${poke_types[0]}">${poke_types[0]}</span></small>
+      <small class="type"><span class="t ${secu}">${secu}</span></small>
+      <small class="type">Peso: <span class="t ${poke_types[0]}">${data.weight/10} Kg</span></small>
+      <small class="type">Altura: <span class="t ${poke_types[0]}">${data.height/10} m</span></small>
+      </div>
+      <div>
+      <img src=${data.sprites['other']['official-artwork']['front_default']} />
+      </div>
+      <div class="base rot2">
+      <small class="type">Vida: <span class="t ${poke_types[0]}">${data.stats[0].base_stat}</span></small>
+      <small class="type">Ataque: <span class="t ${poke_types[0]}">${data.stats[1].base_stat}</span></small>
+      <small class="type">Defensa: <span class="t ${poke_types[0]}">${data.stats[2].base_stat}</span></small>
+      <small class="type">Speed: <span class="t ${poke_types[0]}">${data.stats[5].base_stat}</span></small>
+      </div>
      </div>
      </div>
      </div>
       `
   });
  }
-
- //----------------------------------------------------------------------------------------
-function clickPoke(e){
-  getPokemon(e.target.id);
-    pokeContent.textContent="";
-    pokeContent.classList.toggle("hidden");
-}

@@ -1,15 +1,15 @@
 body{
-        background: rgb(23, 32, 48);
+        background: black;
         font-family: 'Roboto Mono', monospace;
         margin: 0;
     }
     .contenedor {
         max-width: 1200px;
         margin: 0 auto;
-        width: 95%;
+        width: 98%;
     }
     .preloader{
-        background: rgb(23, 32, 48);
+        background: black;
         position: fixed;
         z-index: 102;
         top: 0;
@@ -22,6 +22,46 @@ body{
         justify-content: center;
         align-items: center;
     }
+    .input-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        margin-left: 5%;
+    }
+    .i-search{
+        height: 100%;
+        background: rgba(204, 204, 204, 0.438);
+        color: #007bff;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .input-box input{
+        height: 100%;
+        width: 150px;
+        border: none;
+        outline: none;
+        border: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+          background: white;
+          outline: none;
+          background: rgba(204, 204, 204, 0.438);
+          color: rgb(255, 251, 251);
+          font-size: 15px;
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-left: 20px;  
+    }
+    .input-box input::placeholder{
+        color: #fdfffd;
+    }
+    
     .menu{
         position: fixed;
         top: 0;
@@ -38,45 +78,7 @@ nav{
     justify-content: center;
     justify-content: space-between;
 }
-.input-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    margin-left: 5%;
-}
-.input-box input{
-    height: 100%;
-    width: 150px;
-    border: none;
-    outline: none;
-    border: none;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-      background: white;
-      outline: none;
-      background: rgba(204, 204, 204, 0.438);
-      color: rgb(255, 251, 251);
-      font-size: 15px;
-      padding-top: 0;
-      padding-bottom: 0;
-      padding-left: 20px;  
-}
-.input-box input::placeholder{
-    color: #a0a29f;
-}
-.i-search{
-    height: 100%;
-    background: rgba(204, 204, 204, 0.438);
-    color: #007bff;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+
 nav .poke{
     margin: 0;
     color: white;
@@ -94,6 +96,135 @@ span{
         width: 200px;
         height: 100px;
     }
+/*-------------------------------SEARCH-----------------------------------------------------*/
+.pokedex__header-search{
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding-top: 70px;
+}
+.pokedex__header-aline{
+ display: flex;  
+ width: 150px;
+}
+.pokedex__pokemon-content{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 102;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.753);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+   }
+.hidden {
+    display: none;
+  }
+.app{
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-top: 100px;
+}
+@media only screen and (max-width: 600px) {
+    .app{
+     grid-template-columns: repeat(2,1fr);
+    }
+   }
+   .card{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    padding: 10px;
+    border: solid 1px rgba(204, 204, 204, 0.212);
+}
+.card img{
+    width: 150px;
+    height: 150px;
+}
+.info {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+.info-name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.number {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px 10px;
+}
+.t{
+    border-radius: 10px;
+    padding: 1px 1px;
+}
+.type{
+    margin-bottom: 5px;
+}
+.iconsTypes{
+    display: flex;
+    flex-direction: column;
+}
+/*-----------------CARDS--------------------------------------*/
+
+.pCards{
+    background: black;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+.pCards h3{
+    margin: 0;
+}
+.pCards .n{
+    padding: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.cards{ 
+    color: black;
+    padding: 10px;  
+}
+.base{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.infos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: 25px;
+}
+.infos img {
+    width: 200px;
+    height: 200px;
+}
+@media only screen and (max-width: 600px) {
+   .infos{
+       flex-direction: column;
+   }
+}
+
+/* -------------------------------footer--------------------------------*/
+.footer{
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
 /*--------------------------------TIPO COLORES---------------------------------------------------------------*/
 .tipos{
     display: flex;
@@ -103,6 +234,9 @@ span{
     width: 35px;
     height: 35px;
     margin-bottom: 5px;
+}
+.tipos .infom{
+font-size: 20px;
 }
 .fire{
     background: #fba54c;
@@ -176,130 +310,4 @@ span{
 .steel{
     background: #5695a3;
     box-shadow: 0 0 20px #5695a3;
-}
-/*-------------------------------SEARCH-----------------------------------------------------*/
-.pokedex__header-search{
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    padding-top: 70px;
-}
-.pokedex__header-aline{
- display: flex;  
- width: 150px;
-}
-.pokedex__pokemon-content{
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.753);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-   }
-.hidden {
-    display: none;
-  }
-.app{
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-@media only screen and (max-width: 600px) {
-    .app{
-     grid-template-columns: repeat(2,1fr);
-    }
-   }
-/*-----------------CARDS--------------------------------------*/
-.pCards{
-    background: rgb(23, 32, 48);
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-}
-.pCards h3{
-    margin: 0;
-}
-.pCards .n{
-    background-color: rgba(0, 0, 0, 0.548);
-    padding: 4px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.card{
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    text-shadow: 1px 1px 2px black;
-    padding: 10px;
-    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-}
-.card img{
-    width: 150px;
-    height: 150px;
-}
-.cards{ 
-    text-align: center;
-    color: black;
-    padding: 10px;  
-}
-.infos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    font-size: 25px;
-    padding: 20px;
-}
-.img-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.6);
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	text-align: center;
-    margin: auto;
-}
-.info {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5px;
-}
-.info-name{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.number {
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	font-size: 20px;
-	padding: 5px 10px;
-}
-.t{
-    border-radius: 10px;
-    padding: 1px 1px;
-}
-.type{
-    margin-bottom: 5px;
-}
-.iconsTypes{
-    display: flex;
-    flex-direction: column;
-}
-/* -------------------------------footer--------------------------------*/
-.footer{
-    padding: 10px;
-    text-align: center;
-    color: white;
 }
