@@ -52,45 +52,44 @@ function displayPokemon (pokemon){
   app.innerHTML = pokemonHTMLString;
 };
 function cons(type){
- 
-    switch (type) {
-      case "fire":
-        return "fa-fire"
-        case "electric":
-          return "fa-bolt"
-          case "poison":
-            return "fa-skull-crossbones"
-            case "grass":
-              return "fa-leaf";
-              case "water":
-              return "fa-water";
-              case "bug":
-              return "fa-bug";
-              case "flying":
-                return "fa-wind";
-                case "fairy":
-                return "fa-syringe";
-                case "psychic":
-                return "fa-bullseye";
-                case "fighting":
-                return "fa-fist-raised";
-                case "dragon":
-                return "fa-dragon";
-                case "ice":
-                return "fa-snowflake";
-                case "normal":
-                  return "fa-circle-notch";
-                  case "rock":
-                return "fa-octagon";
-                case "ground":
-                return "fa-mountain";
-                case "ghost":
-                return "fa-ghost";
-                case "dark":
-                return "fa-adjust";
-                case "steel":
-                  return "far fa-wrench";
-  }
+  switch (type) {
+    case "fire":
+      return "fa-fire"
+      case "electric":
+        return "fa-bolt"
+        case "poison":
+          return "fa-skull-crossbones"
+          case "grass":
+            return "fa-leaf";
+            case "water":
+            return "fa-water";
+            case "bug":
+            return "fa-bug";
+            case "flying":
+              return "fa-wind";
+              case "fairy":
+              return "fa-syringe";
+              case "psychic":
+              return "fa-bullseye";
+              case "fighting":
+              return "fa-fist-raised";
+              case "dragon":
+              return "fa-dragon";
+              case "ice":
+              return "fa-snowflake";
+              case "normal":
+                return "fa-circle-notch";
+                case "rock":
+              return "fa-octagon";
+              case "ground":
+              return "fa-mountain";
+              case "ghost":
+              return "fa-ghost";
+              case "dark":
+              return "fa-adjust";
+              case "steel":
+                return "far fa-wrench";
+}
 };
  //----------------------------------------------------------------------------------------
 function clickPoke(e){
