@@ -52,65 +52,44 @@ function displayPokemon (pokemon){
   app.innerHTML = pokemonHTMLString;
 };
 function cons(type){
-  if(type){
+ 
     switch (type) {
       case "fire":
         return "fa-fire"
-        break;
         case "electric":
           return "fa-bolt"
-          break;
           case "poison":
             return "fa-skull-crossbones"
-            break;
             case "grass":
               return "fa-leaf";
-              break;
               case "water":
               return "fa-water";
-              break;
               case "bug":
               return "fa-bug";
-              break;
               case "flying":
                 return "fa-wind";
-                break;
                 case "fairy":
                 return "fa-syringe";
-                break;
                 case "psychic":
                 return "fa-bullseye";
-                break;
                 case "fighting":
                 return "fa-fist-raised";
-                break;
                 case "dragon":
                 return "fa-dragon";
-                break;
                 case "ice":
                 return "fa-snowflake";
-                break;
                 case "normal":
                   return "fa-circle-notch";
-                  break;
                   case "rock":
                 return "fa-octagon";
-                break;
                 case "ground":
                 return "fa-mountain";
-                break;
                 case "ghost":
                 return "fa-ghost";
-                break;
                 case "dark":
                 return "fa-adjust";
-                break;
                 case "steel":
                   return "far fa-wrench";
-                  break;
-      default:
-        break;
-  }
   }
 };
  //----------------------------------------------------------------------------------------
