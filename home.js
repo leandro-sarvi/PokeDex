@@ -112,7 +112,7 @@ function cons(type){
         break;
   }
   }
-}
+};
  //----------------------------------------------------------------------------------------
 function clickPoke(e){
  if(e.target.classList.contains("infom")){
@@ -120,7 +120,7 @@ function clickPoke(e){
    getPokemon(e.target.id);
    con.classList.toggle("hidden");
  }
-}
+};
 function hiddenDetail(){
   con.classList.toggle("hidden");
 }
@@ -162,4 +162,4 @@ let secu ="";
      </div>
       `
   });
- }
+ };
