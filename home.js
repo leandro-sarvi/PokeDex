@@ -42,8 +42,8 @@ function displayPokemon (pokemon){
       <div>
           <img src=${son.image} />
           </div>
-          <div class="tipos normal">
-          <i class="fas fa-info infom" id="${son.id}"></i>
+          <div class="tipos normal infom" id="${son.id}">
+          <i class="fas fa-info"></i>
           </div>
           </div>
   `
@@ -116,7 +116,6 @@ function cons(type){
  //----------------------------------------------------------------------------------------
 function clickPoke(e){
  if(e.target.classList.contains("infom")){
-   console.log("hola")
    con.textContent="";
    getPokemon(e.target.id);
    con.classList.toggle("hidden");
