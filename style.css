@@ -45,11 +45,8 @@ body{
         height: 100%;
         width: 150px;
         border: none;
-        outline: none;
-        border: none;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
-          background: white;
           outline: none;
           background: rgba(204, 204, 204, 0.438);
           color: rgb(255, 251, 251);
